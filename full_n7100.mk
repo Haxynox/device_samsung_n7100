@@ -1,4 +1,5 @@
-# Copyright (C) 2012 The CyanogenMod Project
+#
+# Copyright 2013 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,25 +12,29 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-#
-# This file is the build configuration for a full Android
-# build for toro hardware. This cleanly combines a set of
-# device-specific aspects (drivers) with a device-agnostic
-# product configuration (apps). Except for a few implementation
-# details, it only fundamentally contains two inherit-product
-# lines, full and toro, hence its name.
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-# This is where we'd set a backup provider if we had one
-#$(call inherit-product, device/sample/products/backup_overlay.mk)
-$(call inherit-product, device/samsung/n7100/n7100.mk)
+# Get the long list of APNs
+PRODUCT_COPY_FILES := device/samsung/n7100/configs/apns-full-conf.xml:system/etc/apns-conf.xml
 
-# Discard inherited values and use our own instead.
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
 PRODUCT_NAME := full_n7100
 PRODUCT_DEVICE := n7100
 PRODUCT_BRAND := samsung
+PRODUCT_MODEL := AOSP on n7100
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := GT-N7100
+PRODUCT_RESTRICT_VENDOR_FILES := false
+
+
+# Set build fingerprint / ID / Product Name ect.
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=t03gxx \
+    TARGET_DEVICE=t03g \
+    PRIVATE_BUILD_DESC="t03gxx-user 4.4.2 KOT49H N7100XXUFND3 release-keys" \
+    BUILD_FINGERPRINT="samsung/t03gxx/t03g:4.4.2/KOT49H/N7100XXUFND3:user/release-keys"
+
+$(call inherit-product, device/samsung/n7100/device.mk)
+$(call inherit-product-if-exists, vendor/samsung/n7100/device-vendor.mk)
