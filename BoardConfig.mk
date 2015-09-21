@@ -34,9 +34,6 @@ TARGET_KERNEL_CONFIG := cyanogenmod_n7100_defconfig
 # assert
 TARGET_OTA_ASSERT_DEVICE := t03g,n7100,GT-N7100
 
-# Gps testing
-GPS_TEST := true
-
 # own headers
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/n7100/include
 
