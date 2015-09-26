@@ -59,12 +59,14 @@ BOARD_SEPOLICY_UNION +=\
     netd.te \
     nfc.te \
     platform_app.te \
+    radio.te \
     rild.te \
     service_contexts \
     surfaceflinger.te \
     system_app.te \
     system_server.te \
     ueventd.te \
+    vold.te \
     wpa.te
 
 # Recovery
