@@ -24,7 +24,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 PRODUCT_NAME := full_n7100
 PRODUCT_DEVICE := n7100
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := AOSP on n7100
+PRODUCT_MODEL := n7100
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
