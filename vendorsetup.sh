@@ -17,3 +17,5 @@
 add_lunch_combo aosp_n7100-user
 add_lunch_combo aosp_n7100-userdebug
 add_lunch_combo aosp_n7100-eng
+add_lunch_combo slim_n7100-userdebug
+add_lunch_combo slim_n7100-eng
