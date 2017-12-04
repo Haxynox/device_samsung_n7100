@@ -1,6 +1,13 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, vendor/slim/config/common_full_phone.mk)
 $(call inherit-product, device/samsung/n7100/full_n7100.mk)
+
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1080
+TARGET_SCREEN_WIDTH := 720
+
 # Release name
 PRODUCT_RELEASE_NAME := n7100
 
